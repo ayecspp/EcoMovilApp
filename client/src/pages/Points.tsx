@@ -4,6 +4,7 @@ import PointsCard from "@/components/PointsCard";
 import RewardCard from "@/components/RewardCard";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 const rewards = [
   {
@@ -68,17 +69,25 @@ export default function Points() {
 
         <div>
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-lg font-semibold">Recompensas Disponibles</h2>
+            <h2 className="text-lg font-semibold">Recompensas Destacadas</h2>
             <Badge variant="secondary">
               <Award className="w-3 h-3 mr-1" />
               {rewards.length}
             </Badge>
           </div>
-          <div className="grid grid-cols-1 gap-3">
-            {rewards.map((reward) => (
+          <div className="grid grid-cols-1 gap-3 mb-4">
+            {rewards.slice(0, 2).map((reward) => (
               <RewardCard key={reward.id} {...reward} />
             ))}
           </div>
+          <Button 
+            variant="outline" 
+            className="w-full"
+            data-testid="button-view-all-rewards"
+            onClick={() => console.log('Ver todas las recompensas')}
+          >
+            Ver Todas las Recompensas
+          </Button>
         </div>
 
         <div>

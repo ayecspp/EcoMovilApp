@@ -1,5 +1,6 @@
 import { User, MapPin, Bell, HelpCircle, LogOut, ChevronRight, Award, Leaf } from "lucide-react";
 import AppHeader from "@/components/AppHeader";
+import PointsCard from "@/components/PointsCard";
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -23,6 +24,8 @@ export default function Profile() {
       <AppHeader title="Mi Perfil" />
 
       <div className="p-4 space-y-6">
+        <PointsCard points={1250} change={85} />
+        
         <Card className="p-6">
           <div className="flex items-center gap-4 mb-6">
             <Avatar className="w-20 h-20">

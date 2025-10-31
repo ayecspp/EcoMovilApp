@@ -1,6 +1,5 @@
 import { Truck, QrCode, MapPin, Leaf } from "lucide-react";
 import { useLocation } from "wouter";
-import PointsCard from "@/components/PointsCard";
 import QuickActionCard from "@/components/QuickActionCard";
 import UpcomingCollection from "@/components/UpcomingCollection";
 
@@ -9,16 +8,14 @@ export default function Home() {
 
   return (
     <div className="pb-20">
-      <div className="bg-gradient-to-br from-primary to-primary/90 text-primary-foreground px-4 pt-6 pb-12">
+      <div className="bg-gradient-to-br from-primary to-primary/90 text-primary-foreground px-4 pt-6 pb-8">
         <h1 className="text-2xl font-bold mb-2">¡Hola, Usuario!</h1>
         <p className="text-sm text-primary-foreground/80">
           Juntos hacemos un planeta más verde
         </p>
       </div>
 
-      <div className="px-4 -mt-8 space-y-6">
-        <PointsCard points={1250} change={85} />
-
+      <div className="px-4 pt-6 space-y-6">
         <div>
           <h2 className="text-lg font-semibold mb-3">Acciones Rápidas</h2>
           <div className="flex gap-3 overflow-x-auto pb-2 -mx-4 px-4 scrollbar-hide">

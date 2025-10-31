@@ -41,7 +41,7 @@ export default function Home() {
               icon={Leaf}
               title="Consejos"
               description="Aprende a reciclar mejor"
-              onClick={() => console.log('Consejos')}
+              onClick={() => setLocation("/tips")}
             />
           </div>
         </div>

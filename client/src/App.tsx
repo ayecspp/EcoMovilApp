@@ -11,6 +11,7 @@ import Map from "@/pages/Map";
 import Points from "@/pages/Points";
 import Events from "@/pages/Events";
 import Profile from "@/pages/Profile";
+import Tips from "@/pages/Tips";
 import BottomNav from "@/components/BottomNav";
 import NotFound from "@/pages/not-found";
 
@@ -25,6 +26,7 @@ function Router() {
       <Route path="/points" component={Points} />
       <Route path="/events" component={Events} />
       <Route path="/profile" component={Profile} />
+      <Route path="/tips" component={Tips} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -50,9 +50,17 @@ export default function PickupRequest() {
   const [selectedContainer, setSelectedContainer] = useState("");
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [selectedSchedule, setSelectedSchedule] = useState("");
   const [address, setAddress] = useState("");
   const [, setLocation] = useLocation();
   const { toast } = useToast();
+
+  const scheduleOptions = [
+    { id: "lunes-mañana", day: "Lunes", time: "Mañana", hours: "8:00 - 12:00" },
+    { id: "martes-tarde", day: "Martes", time: "Tarde", hours: "14:00 - 18:00" },
+    { id: "miercoles-mañana", day: "Miércoles", time: "Mañana", hours: "8:00 - 12:00" },
+    { id: "jueves-tarde", day: "Jueves", time: "Tarde", hours: "14:00 - 18:00" },
+  ];
 
   const toggleMaterial = (id: string) => {
     setSelectedMaterials(prev =>
@@ -451,14 +459,33 @@ export default function PickupRequest() {
               </div>
               
               <div>
-                <Label htmlFor="date">Fecha preferida</Label>
-                <div className="flex items-center gap-2 mt-2">
-                  <Calendar className="w-5 h-5 text-muted-foreground" />
-                  <Input
-                    id="date"
-                    type="date"
-                    data-testid="input-date"
-                  />
+                <Label>Selecciona día y horario</Label>
+                <div className="grid grid-cols-1 gap-2 mt-2">
+                  {scheduleOptions.map((schedule) => (
+                    <Card
+                      key={schedule.id}
+                      className={`p-4 cursor-pointer transition-all ${
+                        selectedSchedule === schedule.id
+                          ? "border-primary bg-primary/5"
+                          : "hover-elevate"
+                      }`}
+                      onClick={() => setSelectedSchedule(schedule.id)}
+                      data-testid={`card-schedule-${schedule.id}`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <Calendar className="w-5 h-5 text-primary" />
+                          <div>
+                            <p className="font-semibold">{schedule.day} - {schedule.time}</p>
+                            <p className="text-sm text-muted-foreground">{schedule.hours}</p>
+                          </div>
+                        </div>
+                        {selectedSchedule === schedule.id && (
+                          <CheckCircle2 className="w-5 h-5 text-primary" />
+                        )}
+                      </div>
+                    </Card>
+                  ))}
                 </div>
               </div>
             </div>
